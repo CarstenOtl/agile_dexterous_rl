@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: fr3_tekken_adof
+Version: 2.3.0
+Summary: RL Extension Library for Robots, Based on IsaacLab.
+Home-page: 
+Author: Carsten Oertel
+Maintainer: Carsten Oertel
+License: Apache License 2.0
+Keywords: extension,fr3_tekken_adof,isaaclab
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Isaac Sim :: 5.1.0
+Requires-Python: >=3.10
+Requires-Dist: psutil
+Requires-Dist: colorama
+Requires-Dist: xacrodoc
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pinocchio
+Requires-Dist: cusrl[all]
+Dynamic: author
+Dynamic: classifier
+Dynamic: keywords
+Dynamic: license
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

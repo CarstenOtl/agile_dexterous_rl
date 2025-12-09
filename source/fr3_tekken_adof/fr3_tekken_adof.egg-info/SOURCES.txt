@@ -1,0 +1,10 @@
+pyproject.toml
+setup.py
+fr3_tekken_adof/__init__.py
+fr3_tekken_adof/ui_extension_example.py
+fr3_tekken_adof.egg-info/PKG-INFO
+fr3_tekken_adof.egg-info/SOURCES.txt
+fr3_tekken_adof.egg-info/dependency_links.txt
+fr3_tekken_adof.egg-info/not-zip-safe
+fr3_tekken_adof.egg-info/requires.txt
+fr3_tekken_adof.egg-info/top_level.txt

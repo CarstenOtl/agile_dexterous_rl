@@ -19,6 +19,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
         usd_path=f"{ISAACLAB_ASSETS_DATA_DIR}/robots/fr3_tekken_adof/fr3_tekkenadof_left.usd",
         # usd_path=str(ROBOT_USD_PATH),
+        activate_contact_sensors=True, # enable contact sensors if any are defined, for dexsuite tasks
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
             max_depenetration_velocity=5.0,
