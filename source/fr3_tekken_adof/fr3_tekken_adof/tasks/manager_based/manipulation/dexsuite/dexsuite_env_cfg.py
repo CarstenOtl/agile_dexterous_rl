@@ -443,7 +443,9 @@ class DexsuiteLiftEnvCfg(DexsuiteReorientEnvCfg):
         self.commands.object_pose.position_only = True
         if self.curriculum is not None:
             self.rewards.success.params["rot_std"] = None  # make success reward not consider orientation
-            self.curriculum.adr.params["rot_tol"] = None  # make adr not tracking orientation
+            # self.curriculum.adr.params["rot_tol"] = None  # make adr not tracking orientation
+            self.curriculum.adr.params["init_difficulty"] = self.curriculum.adr.params["max_difficulty"]
+
 
 
 class DexsuiteReorientEnvCfg_PLAY(DexsuiteReorientEnvCfg):
