@@ -34,7 +34,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
     init_state=ArticulationCfg.InitialStateCfg(
         pos=(0.0, 0.0, 0.0),
         joint_pos={
-            "fr3_joint1": 0.0,
+            "fr3_joint1": 3.1415 ,
             "fr3_joint2": 0.0,
             "fr3_joint3": 0.0,
             "fr3_joint4": -0.4,
