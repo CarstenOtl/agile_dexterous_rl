@@ -47,7 +47,7 @@ params:
   load_path: '' # path to the checkpoint to load
 
   config:
-    name: fr3_tekken_adof_dexsuite_lift_v1
+    name: fr3_tekken_adof_dexsuite_lift_v2
     # name: reorient
     env_name: rlgpu
     device: 'cuda:0'
