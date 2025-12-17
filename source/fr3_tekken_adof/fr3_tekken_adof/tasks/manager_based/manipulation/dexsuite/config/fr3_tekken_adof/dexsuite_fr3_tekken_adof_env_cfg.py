@@ -56,6 +56,7 @@ class Fr3TekkenAdofMixinCfg:
             "Pinky_Distal_Phalanx", 
             "Thumb_Distal_Phalanx",
         ]
+        self.scene.robot = FR3_TEK_LEFT_STABLE.replace()
         for link_name in finger_tip_body_list:
             setattr(
                 self.scene,

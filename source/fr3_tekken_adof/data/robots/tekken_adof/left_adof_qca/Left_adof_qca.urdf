@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/base_link.STL" />
+          filename="meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_base_link.STL" />
+          filename="meshes/collmesh_base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Thumb_rot.STL" />
+          filename="meshes/Thumb_rot.STL" />
       </geometry>
       <material
         name="">
@@ -80,12 +80,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_thumb_rot.STL" />
+          filename="meshes/collmesh_thumb_rot.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="revolute_Thumb_rot"
+    name="revolute_collmesh_thumb_rot"
     type="revolute">
     <origin
       xyz="0.033806 -0.027174 0.098137"
@@ -124,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Thumb_MCP_Pitch.STL" />
+          filename="meshes/Thumb_MCP_Pitch.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Thumb_MCP_Pitch.STL" />
+          filename="meshes/Thumb_MCP_Pitch.STL" />
       </geometry>
     </collision>
   </link>
@@ -182,7 +182,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_MCP_Yaw.STL" />
+          filename="meshes/Index_MCP_Yaw.STL" />
       </geometry>
       <material
         name="">
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_PIP.STL" />
+          filename="meshes/collmesh_PIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -240,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_Middle_Phalanx.STL" />
+          filename="meshes/Index_Middle_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -254,7 +254,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_MIP.STL" />
+          filename="meshes/collmesh_MIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -298,7 +298,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Thumb_Distal_Phalanx.STL" />
+          filename="meshes/Thumb_Distal_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -312,7 +312,7 @@
         rpy="0 0 1" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_DIP.STL" />
+          filename="meshes/collmesh_DIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -360,7 +360,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_MCP_Pitch.STL" />
+          filename="meshes/Index_MCP_Pitch.STL" />
       </geometry>
       <material
         name="">
@@ -374,7 +374,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_MCP_Pitch.STL" />
+          filename="meshes/Index_MCP_Pitch.STL" />
       </geometry>
     </collision>
   </link>
@@ -418,7 +418,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_MCP_Yaw.STL" />
+          filename="meshes/Index_MCP_Yaw.STL" />
       </geometry>
       <material
         name="">
@@ -432,7 +432,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_PIP.STL" />
+          filename="meshes/collmesh_PIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -476,7 +476,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_Middle_Phalanx.STL" />
+          filename="meshes/Index_Middle_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -490,7 +490,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_MIP.STL" />
+          filename="meshes/collmesh_MIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -534,7 +534,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Index_Distal_Phalanx.STL" />
+          filename="meshes/Index_Distal_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -548,7 +548,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_DIP.STL" />
+          filename="meshes/collmesh_DIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -596,7 +596,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Middle_MCP_Pitch.STL" />
+          filename="meshes/Middle_MCP_Pitch.STL" />
       </geometry>
       <material
         name="">
@@ -610,7 +610,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Middle_MCP_Pitch.STL" />
+          filename="meshes/Middle_MCP_Pitch.STL" />
       </geometry>
     </collision>
   </link>
@@ -654,7 +654,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Middle_MCP_Yaw.STL" />
+          filename="meshes/Middle_MCP_Yaw.STL" />
       </geometry>
       <material
         name="">
@@ -668,7 +668,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_PIP.STL" />
+          filename="meshes/collmesh_PIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -712,7 +712,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Middle_Middle_Phalanx.STL" />
+          filename="meshes/Middle_Middle_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -726,7 +726,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_MIP.STL" />
+          filename="meshes/collmesh_MIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -770,7 +770,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Middle_Distal_Phalanx.STL" />
+          filename="meshes/Middle_Distal_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -784,7 +784,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_DIP.STL" />
+          filename="meshes/collmesh_DIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -832,7 +832,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Ring_MCP_Pitch.STL" />
+          filename="meshes/Ring_MCP_Pitch.STL" />
       </geometry>
       <material
         name="">
@@ -846,7 +846,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Ring_MCP_Pitch.STL" />
+          filename="meshes/Ring_MCP_Pitch.STL" />
       </geometry>
     </collision>
   </link>
@@ -890,7 +890,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Ring_MCP_Yaw.STL" />
+          filename="meshes/Ring_MCP_Yaw.STL" />
       </geometry>
       <material
         name="">
@@ -904,7 +904,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_PIP.STL" />
+          filename="meshes/collmesh_PIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -948,7 +948,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Ring_Middle_Phalanx.STL" />
+          filename="meshes/Ring_Middle_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -962,7 +962,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_MIP.STL" />
+          filename="meshes/collmesh_MIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -1006,7 +1006,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Ring_Distal_Phalanx.STL" />
+          filename="meshes/Ring_Distal_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -1020,7 +1020,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_DIP.STL" />
+          filename="meshes/collmesh_DIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -1068,7 +1068,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Pinky_MCP_Pitch.STL" />
+          filename="meshes/Pinky_MCP_Pitch.STL" />
       </geometry>
       <material
         name="">
@@ -1082,7 +1082,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Pinky_MCP_Pitch.STL" />
+          filename="meshes/Pinky_MCP_Pitch.STL" />
       </geometry>
     </collision>
   </link>
@@ -1126,7 +1126,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Pinky_MCP_Yaw.STL" />
+          filename="meshes/Pinky_MCP_Yaw.STL" />
       </geometry>
       <material
         name="">
@@ -1140,7 +1140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_PIP.STL" />
+          filename="meshes/collmesh_PIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -1184,7 +1184,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Pinky_Middle_Phalanx.STL" />
+          filename="meshes/Pinky_Middle_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -1198,7 +1198,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_MIP.STL" />
+          filename="meshes/collmesh_MIP.STL" />
       </geometry>
     </collision>
   </link>
@@ -1242,7 +1242,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/Pinky_Distal_Phalanx.STL" />
+          filename="meshes/Pinky_Distal_Phalanx.STL" />
       </geometry>
       <material
         name="">
@@ -1256,7 +1256,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="./meshes/collmesh_DIP.STL" />
+          filename="meshes/collmesh_DIP.STL" />
       </geometry>
     </collision>
   </link>
