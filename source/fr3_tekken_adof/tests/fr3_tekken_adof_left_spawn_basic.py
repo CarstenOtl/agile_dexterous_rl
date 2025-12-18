@@ -23,7 +23,9 @@ from isaaclab.app import AppLauncher
 
 # CLI
 parser = argparse.ArgumentParser(description="Spawn FR3 Tekken ADoF left.")
-parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to spawn.")
+parser.add_argument(
+    "--num_envs", type=int, default=1, help="Number of environments to spawn."
+)
 # parser.add_argument(
 #     "--device",
 #     type=str,
@@ -52,11 +54,16 @@ from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_STABLE
 class SceneCfg(InteractiveSceneCfg):
     """Simple scene with ground, light, and the robot."""
 
-    ground = AssetBaseCfg(prim_path="/World/defaultGroundPlane", spawn=sim_utils.GroundPlaneCfg())
-    light = AssetBaseCfg(
-        prim_path="/World/Light", spawn=sim_utils.DomeLightCfg(intensity=3000.0, color=(0.8, 0.8, 0.8))
+    ground = AssetBaseCfg(
+        prim_path="/World/defaultGroundPlane", spawn=sim_utils.GroundPlaneCfg()
     )
-    robot: ArticulationCfg = FR3_TEK_LEFT_STABLE.replace(prim_path="{ENV_REGEX_NS}/robot")
+    light = AssetBaseCfg(
+        prim_path="/World/Light",
+        spawn=sim_utils.DomeLightCfg(intensity=3000.0, color=(0.8, 0.8, 0.8)),
+    )
+    robot: ArticulationCfg = FR3_TEK_LEFT_STABLE.replace(
+        prim_path="{ENV_REGEX_NS}/robot"
+    )
 
 
 def run_simulator(sim: SimulationContext, scene: InteractiveScene):
@@ -88,7 +95,9 @@ def run_simulator(sim: SimulationContext, scene: InteractiveScene):
 
 
 def main():
-    sim_cfg = sim_utils.SimulationCfg(device=args_cli.device, dt=0.01, render_interval=1)
+    sim_cfg = sim_utils.SimulationCfg(
+        device=args_cli.device, dt=0.01, render_interval=1
+    )
     sim = SimulationContext(sim_cfg)
     sim.set_camera_view([2.5, 0.0, 1.5], [0.0, 0.0, 0.5])
 
@@ -101,5 +110,6 @@ def main():
 
 
 if __name__ == "__main__":
+    print(f"fr3_stable: {FR3_TEK_LEFT_STABLE}")
     main()
     simulation_app.close()

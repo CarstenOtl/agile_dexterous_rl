@@ -23,7 +23,9 @@ from isaaclab.app import AppLauncher
 
 # CLI
 parser = argparse.ArgumentParser(description="Spawn FR3 Tekken ADoF (left) robot.")
-parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to spawn.")
+parser.add_argument(
+    "--num_envs", type=int, default=1, help="Number of environments to spawn."
+)
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
 
@@ -42,7 +44,7 @@ import isaaclab.envs.mdp as mdp
 from isaaclab.scene import InteractiveSceneCfg
 from isaaclab.utils import configclass
 
-from omniisaacgymenvs.robots.articulations.fr3_tekken_left import FR3_TEK_LEFT_CONFIG
+from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_CONFIG  # isort: skip
 
 
 @configclass
@@ -51,9 +53,12 @@ class SceneCfg(InteractiveSceneCfg):
 
     ground = AssetBaseCfg(prim_path="/World/ground", spawn=sim_utils.GroundPlaneCfg())
     light = AssetBaseCfg(
-        prim_path="/World/Light", spawn=sim_utils.DomeLightCfg(intensity=3000.0, color=(0.75, 0.75, 0.75))
+        prim_path="/World/Light",
+        spawn=sim_utils.DomeLightCfg(intensity=3000.0, color=(0.75, 0.75, 0.75)),
     )
-    robot: ArticulationCfg = FR3_TEK_LEFT_CONFIG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+    robot: ArticulationCfg = FR3_TEK_LEFT_CONFIG.replace(
+        prim_path="{ENV_REGEX_NS}/Robot"
+    )
 
 
 @configclass
@@ -62,7 +67,9 @@ class ObservationsCfg:
 
     @configclass
     class PolicyCfg(ObsGroup):
-        joint_pos = ObsTerm(func=mdp.joint_pos_rel, params={"asset_cfg": SceneEntityCfg("robot")})
+        joint_pos = ObsTerm(
+            func=mdp.joint_pos_rel, params={"asset_cfg": SceneEntityCfg("robot")}
+        )
 
         def __post_init__(self):
             self.enable_corruption = False

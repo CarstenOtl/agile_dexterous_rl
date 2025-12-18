@@ -12,14 +12,14 @@ from isaaclab.assets.articulation import ArticulationCfg
 # Path to the robot USD (models live under omniisaacgymenvs/models)
 
 
-from fr3_tekken_adof.assets import ISAACLAB_ASSETS_DATA_DIR 
+from fr3_tekken_adof.assets import ISAACLAB_ASSETS_DATA_DIR
 
 
 FR3_TEK_LEFT_CONFIG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ISAACLAB_ASSETS_DATA_DIR}/robots/fr3_tekken_adof/fr3_tekkenadof_left.usd",
+        usd_path=f"{ISAACLAB_ASSETS_DATA_DIR}/robots/fr3_tekken_adof/FR3_tekkenadof_left.usd",
         # usd_path=str(ROBOT_USD_PATH),
-        activate_contact_sensors=True, # enable contact sensors if any are defined, for dexsuite tasks
+        activate_contact_sensors=True,  # enable contact sensors if any are defined, for dexsuite tasks
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
             max_depenetration_velocity=5.0,
@@ -33,8 +33,9 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
     ),
     init_state=ArticulationCfg.InitialStateCfg(
         pos=(0.0, 0.0, 0.0),
+        rot=(0.0, 0.0, 0.0, 1.0),
         joint_pos={
-            "fr3_joint1": 0.0 ,
+            "fr3_joint1": 0.0,
             "fr3_joint2": 0.0,
             "fr3_joint3": 0.0,
             "fr3_joint4": -0.4,
@@ -46,7 +47,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
             # MCP Pitch: [0 , 1.22] ==> [0 , ~70 deg]
             # MCP Yaw: [-0.26 , 0.26] ==> [-15 deg , 15 deg]
             # PIP: [0 , 1.57] ==> [0 , 90 deg]
-            "revolute_Thumb_rot": 0.0,
+            "revolute_thumb_rot": 0.0,
             "revolute_thumb_mcp_pitch": 0.0,
             "revolute_thumb_mcp_yaw": 0.0,
             "revolute_thumb_pip": 0.0,
@@ -55,11 +56,11 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
             "revolute_index_mcp_yaw": 0.0,
             "revolute_index_pip": 0.0,
             # # "revolute_index_dip": 0.0,
-            "revolute_middle_mcp_pitch":0.0,
+            "revolute_middle_mcp_pitch": 0.0,
             "revolute_middle_mcp_yaw": 0.0,
             "revolute_middle_pip": 0.0,
             # # "revolute_middle_dip": 0.0,
-            "revolute_ring_mcp_pitch": 0.,
+            "revolute_ring_mcp_pitch": 0.0,
             "revolute_ring_mcp_yaw": 0.0,
             "revolute_ring_pip": 0.0,
             # # "revolute_ring_dip": 0.0,
@@ -78,7 +79,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
             damping=6000.0,
         ),
         "thumb_rot": ImplicitActuatorCfg(
-            joint_names_expr=["revolute_Thumb_rot"],
+            joint_names_expr=["revolute_thumb_rot"],
             effort_limit_sim=10.0,
             velocity_limit_sim=100.0,
             stiffness=500.0,
@@ -129,7 +130,7 @@ FR3_TEK_LEFT_STABLE = FR3_TEK_LEFT_CONFIG.replace(
         # Hand / Tekken joints – low stiffness, decent damping so they don't go crazy
         "hand_pd": ImplicitActuatorCfg(
             joint_names_expr=[
-                r"revolute_Thumb_rot",
+                r"revolute_thumb_rot",
                 r"revolute_.*_mcp_pitch",
                 r"revolute_.*_mcp_yaw",
                 r"revolute_.*_pip",
