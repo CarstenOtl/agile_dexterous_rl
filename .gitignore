@@ -1,0 +1,20 @@
+# trained policies
+logs/
+run/
+outputs/
+
+# Python cache
+__pycache__/
+#*.py[cod]
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+#Build artifacts
+build/
+dist/
+*.egg-info/
+
+
