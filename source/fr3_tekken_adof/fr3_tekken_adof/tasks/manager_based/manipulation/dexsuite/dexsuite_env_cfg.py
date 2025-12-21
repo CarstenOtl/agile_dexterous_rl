@@ -429,6 +429,9 @@ class DexsuiteReorientEnvCfg(ManagerBasedEnvCfg):
         self.sim.physx.bounce_threshold_velocity = 0.01
         self.sim.physx.gpu_max_rigid_patch_count = 4 * 5 * 2**15
 
+        # increase collision stack size
+        self.sim.physx.gpu_collision_stack_size = 2**29
+
         if self.curriculum is not None:
             self.curriculum.adr.params["pos_tol"] = self.rewards.success.params["pos_std"] / 2
             self.curriculum.adr.params["rot_tol"] = self.rewards.success.params["rot_std"] / 2
