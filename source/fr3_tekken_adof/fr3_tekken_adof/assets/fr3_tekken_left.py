@@ -22,14 +22,16 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
         activate_contact_sensors=True,  # enable contact sensors if any are defined, for dexsuite tasks
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
-            max_depenetration_velocity=5.0,
+            max_depenetration_velocity=30.0,
         ),
         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
             enabled_self_collisions=True,
             solver_position_iteration_count=10,
             solver_velocity_iteration_count=4,
+            stabilization_threshold=0.0005,
             # fixed_root_link=True,
         ),
+        joint_drive_props=sim_utils.JointDrivePropertiesCfg(drive_type="force"),
     ),
     init_state=ArticulationCfg.InitialStateCfg(
         pos=(0.0, 0.0, 0.0),
@@ -71,49 +73,80 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
         },
     ),
     actuators={
-        "franka_arm": ImplicitActuatorCfg(
-            joint_names_expr=[r"fr3_joint[1-7]"],
-            effort_limit_sim=87.0,
-            velocity_limit_sim=None,
-            stiffness=60000.0,
-            damping=6000.0,
-        ),
-        "thumb_rot": ImplicitActuatorCfg(
-            joint_names_expr=["revolute_thumb_rot"],
-            effort_limit_sim=10.0,
-            velocity_limit_sim=100.0,
-            stiffness=500.0,
-            damping=100.0006,
-        ),
-        "mcp_pitch": ImplicitActuatorCfg(
-            joint_names_expr=[r"revolute_.*_mcp_pitch"],
-            effort_limit_sim=10.0,
-            velocity_limit_sim=300.0,
-            stiffness=50.814,
-            damping=30.00073,
-        ),
-        "mcp_yaw": ImplicitActuatorCfg(
-            joint_names_expr=[r"revolute_.*_mcp_yaw"],
-            effort_limit_sim=10.0,
-            velocity_limit_sim=300.0,
-            stiffness=50.2861,
-            damping=30.00022,
-        ),
-        "pip": ImplicitActuatorCfg(
-            joint_names_expr=[r"revolute_.*_pip"],
-            effort_limit_sim=10.0,
-            velocity_limit_sim=300.0,
-            stiffness=50.25291,
-            damping=30.0002,
-        ),
-        # "dip": ImplicitActuatorCfg(
-        #     joint_names_expr=[r"revolute_.*_dip.*"],
-        #     effort_limit_sim=10.0,
-        #     velocity_limit_sim=8.0,
-        #     stiffness=0.25291,
-        #     damping=0.0002,
+        # "franka_arm": ImplicitActuatorCfg(
+        #     joint_names_expr=[r"fr3_joint[1-7]"],
+        #     effort_limit_sim=600.0,
+        #     velocity_limit_sim=None,
+        #     stiffness=60000.0,
+        #     damping=6000.0,
         # ),
-    },
+        # "thumb_rot": ImplicitActuatorCfg(
+        #     joint_names_expr=["revolute_thumb_rot"],
+        #     effort_limit_sim=300.0,
+        #     velocity_limit_sim=20.0,
+        #     stiffness=1.5,
+        #     damping=0.5,
+        # ),
+        # "mcp_pitch": ImplicitActuatorCfg(
+        #     joint_names_expr=[r"revolute_.*_mcp_pitch"],
+        #     effort_limit_sim=100.0,
+        #     velocity_limit_sim=300.0,
+        #     stiffness=0.5,
+        #     damping=0.1,
+        # ),
+        # "mcp_yaw": ImplicitActuatorCfg(
+        #     joint_names_expr=[r"revolute_.*_mcp_yaw"],
+        #     effort_limit_sim=100.0,
+        #     velocity_limit_sim=300.0,
+        #     stiffness=0.5,
+        #     damping=0.1,
+        # ),
+        # "pip": ImplicitActuatorCfg(
+        #     joint_names_expr=[r"revolute_.*_pip"],
+        #     effort_limit_sim=100.0,
+        #     velocity_limit_sim=300.0,
+        #     stiffness=0.5,
+        #     damping=0.1,
+        # ),
+
+        "franka_tekken_actuators": ImplicitActuatorCfg(
+            joint_names_expr=[
+                r"fr3_joint(1|2|3|4|5|6|7)",
+                r"revolute_thumb_rot",
+                r"revolute_.*_mcp_yaw",
+                r"revolute_.*_mcp_pitch",
+                r"revolute_.*_pip",
+            ],
+            effort_limit_sim={
+                "fr3_joint(1|2|3|4|5|6|7)": 600.,
+                r"revolute_thumb_rot":100.0,
+                r"revolute_.*_mcp_yaw":100.0,
+                r"revolute_.*_mcp_pitch":100.0,
+                r"revolute_.*_pip":100.0,
+            },
+            stiffness={
+                "fr3_joint(1|2|3|4)": 6000.,
+                "fr3_joint5": 3000.,
+                "fr3_joint6": 3000.,
+                "fr3_joint7": 3000.,
+                r"revolute_thumb_rot":5.0,
+                r"revolute_.*_mcp_yaw":1.5,
+                r"revolute_.*_mcp_pitch":1.5,
+                r"revolute_.*_pip":1.5,
+            },
+            damping={
+                "fr3_joint(1|2|3|4)": 600.,
+                "fr3_joint5": 300.,
+                "fr3_joint6": 300.,
+                "fr3_joint7": 300.,
+                r"revolute_thumb_rot":1.5,
+                r"revolute_.*_mcp_yaw":.5,
+                r"revolute_.*_mcp_pitch":.5,
+                r"revolute_.*_pip":1.5,
+            },
+        ),
+     },
+    # soft_joint_pos_limit_factor=1.0
 )
 
 # Create a variant of the config with explicit actuators for stability

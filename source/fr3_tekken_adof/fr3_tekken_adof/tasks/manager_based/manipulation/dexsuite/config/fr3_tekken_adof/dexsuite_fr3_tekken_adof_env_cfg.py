@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # from isaaclab_assets.robots import KUKA_ALLEGRO_CFG
-from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_STABLE  # isort: skip
+from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_CONFIG  # isort: skip
 
 from isaaclab.managers import ObservationTermCfg as ObsTerm
 from isaaclab.managers import RewardTermCfg as RewTerm
@@ -43,7 +43,7 @@ class Fr3TekkenAdofMixinCfg:
     def __post_init__(self: dexsuite.DexsuiteReorientEnvCfg):
         super().__post_init__()
         self.commands.object_pose.body_name = "base_link"
-        self.scene.robot = FR3_TEK_LEFT_STABLE.replace(prim_path="{ENV_REGEX_NS}/Robot")
+        self.scene.robot = FR3_TEK_LEFT_CONFIG.replace(prim_path="{ENV_REGEX_NS}/Robot")
         finger_tip_body_list = [
             "Index_Distal_Phalanx",
             "Middle_Distal_Phalanx",

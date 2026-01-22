@@ -59,7 +59,7 @@ class SceneCfg(InteractiveSceneCfg):
                 disable_gravity=False,
             ),
             collision_props=sim_utils.CollisionPropertiesCfg(),
-            mass_props=sim_utils.MassPropertiesCfg(mass=0.2),
+            mass_props=sim_utils.MassPropertiesCfg(mass=0.1),
         ),
         init_state=RigidObjectCfg.InitialStateCfg(pos=(-0.55, 0.1, 0.35)),
     )
@@ -197,8 +197,8 @@ class EventCfg:
         mode="startup",
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names=".*"),
-            "static_friction_range": [0.5, 1.0],
-            "dynamic_friction_range": [0.5, 1.0],
+            "static_friction_range": [1.0, 1.5],
+            "dynamic_friction_range": [0.2, 0.5],
             "restitution_range": [0.0, 0.0],
             "num_buckets": 250,
         },
@@ -209,8 +209,8 @@ class EventCfg:
         mode="startup",
         params={
             "asset_cfg": SceneEntityCfg("object", body_names=".*"),
-            "static_friction_range": [0.5, 1.0],
-            "dynamic_friction_range": [0.5, 1.0],
+            "static_friction_range": [1.0, 1.5],
+            "dynamic_friction_range": [0.3, 0.5],
             "restitution_range": [0.0, 0.0],
             "num_buckets": 250,
         },
@@ -242,7 +242,7 @@ class EventCfg:
         mode="startup",
         params={
             "asset_cfg": SceneEntityCfg("object"),
-            "mass_distribution_params": [0.2, 2.0],
+            "mass_distribution_params": [0.2, 1.0],
             "operation": "scale",
         },
     )
