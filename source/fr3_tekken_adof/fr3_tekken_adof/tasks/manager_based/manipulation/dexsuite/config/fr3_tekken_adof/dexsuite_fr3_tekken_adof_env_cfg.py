@@ -29,7 +29,7 @@ class Fr3TekkenAdofReorientRewardCfg(dexsuite.RewardsCfg):
     good_finger_contact = RewTerm(
         func=mdp.contacts,
         weight=3.5,
-        params={"threshold": 1.0},
+        params={"threshold": .05},
     )
 
     lift_height = RewTerm(func=mdp.lift_height, weight=3, params={"lift_height": 0.06})

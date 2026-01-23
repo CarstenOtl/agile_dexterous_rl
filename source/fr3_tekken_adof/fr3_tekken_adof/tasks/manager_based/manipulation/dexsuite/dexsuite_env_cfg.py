@@ -262,9 +262,9 @@ class EventCfg:
         mode="reset",
         params={
             "pose_range": {
-                "x": [-0.2, 0.2],
-                "y": [-0.2, 0.2],
-                "z": [0.0, 0.4],
+                "x": [-0.1, 0.1],
+                "y": [-0.1, 0.1],
+                "z": [0.0, 0.2],
                 "roll": [-3.14, 3.14],
                 "pitch": [-3.14, 3.14],
                 "yaw": [-3.14, 3.14],
@@ -298,7 +298,7 @@ class EventCfg:
         mode="reset",
         params={
             "asset_cfg": SceneEntityCfg("robot", joint_names="fr3_joint7"),
-            "position_range": [-3, 3],
+            "position_range": [-1.57, 1.57],
             "velocity_range": [0.0, 0.0],
         },
     )
