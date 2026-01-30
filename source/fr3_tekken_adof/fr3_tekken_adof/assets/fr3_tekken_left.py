@@ -22,7 +22,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
         activate_contact_sensors=True,  # enable contact sensors if any are defined, for dexsuite tasks
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
-            max_depenetration_velocity=30.0,
+            max_depenetration_velocity=5.0,
         ),
         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
             enabled_self_collisions=True,
@@ -146,7 +146,7 @@ FR3_TEK_LEFT_CONFIG = ArticulationCfg(
         #     },
         # ),
     },
-    # soft_joint_pos_limit_factor=1.0
+    soft_joint_pos_limit_factor=0.9
 )
 
 # Create a variant of the config with explicit actuators for stability

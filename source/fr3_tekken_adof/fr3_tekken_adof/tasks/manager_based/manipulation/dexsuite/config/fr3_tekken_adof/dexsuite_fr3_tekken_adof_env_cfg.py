@@ -5,12 +5,15 @@
 
 # from isaaclab_assets.robots import KUKA_ALLEGRO_CFG
 from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_CONFIG  # isort: skip
+import isaaclab.sim as sim_utils
 from fr3_tekken_adof.assets.fr3_tekken_left import FR3_TEK_LEFT_STABLE  # isort: skip
 
 from isaaclab.managers import ObservationTermCfg as ObsTerm
 from isaaclab.managers import RewardTermCfg as RewTerm
 from isaaclab.managers import SceneEntityCfg
-from isaaclab.sensors import ContactSensorCfg
+from isaaclab.markers import VisualizationMarkersCfg
+from isaaclab.sensors import ContactSensorCfg, FrameTransformerCfg
+from isaaclab.sensors.frame_transformer.frame_transformer_cfg import OffsetCfg
 from isaaclab.utils import configclass
 
 from ... import dexsuite_env_cfg as dexsuite
@@ -30,10 +33,22 @@ class Fr3TekkenAdofReorientRewardCfg(dexsuite.RewardsCfg):
     good_finger_contact = RewTerm(
         func=mdp.contacts,
         weight=3.5,
-        params={"threshold": .05},
+        params={"threshold": 0.05},
     )
 
     lift_height = RewTerm(func=mdp.lift_height, weight=3, params={"lift_height": 0.06})
+
+    palm_side_preference = RewTerm(
+        func=mdp.palm_side_preference,
+        weight=1.0,
+        params={
+            "std": 0.1,
+            "palm_body_name": "base_link",
+            # Offsets in base_link frame: adjust if palm normal differs.
+            "palm_offset_b": (0.05, 0.0, 1.0),
+            "back_offset_b": (-0.05, 0.0, 1.0),
+        },
+    )
 
 
 @configclass

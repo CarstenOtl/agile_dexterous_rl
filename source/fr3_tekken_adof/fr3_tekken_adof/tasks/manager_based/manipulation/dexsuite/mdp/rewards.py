@@ -12,7 +12,7 @@ from isaaclab.assets import RigidObject
 from isaaclab.managers import SceneEntityCfg
 from isaaclab.sensors import ContactSensor
 from isaaclab.utils import math as math_utils
-from isaaclab.utils.math import combine_frame_transforms, compute_pose_error
+from isaaclab.utils.math import combine_frame_transforms, compute_pose_error, quat_apply
 
 if TYPE_CHECKING:
     from isaaclab.envs import ManagerBasedRLEnv
@@ -44,6 +44,47 @@ def object_ee_distance(
     object_pos = object.data.root_pos_w
     object_ee_distance = torch.norm(asset_pos - object_pos[:, None, :], dim=-1).max(dim=-1).values
     return 1 - torch.tanh(object_ee_distance / std)
+
+
+def palm_side_preference(
+    env: ManagerBasedRLEnv,
+    std: float,
+    palm_body_name: str,
+    palm_offset_b: tuple[float, float, float],
+    back_offset_b: tuple[float, float, float],
+    object_cfg: SceneEntityCfg = SceneEntityCfg("object"),
+    asset_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+) -> torch.Tensor:
+    """Reward object proximity to palm side and penalize back side proximity."""
+    asset: RigidObject = env.scene[asset_cfg.name]
+    object: RigidObject = env.scene[object_cfg.name]
+
+    try:
+        palm_body_id = asset.data.body_names.index(palm_body_name)
+    except ValueError as exc:
+        raise ValueError(
+            f"Palm body '{palm_body_name}' not found in asset body names."
+        ) from exc
+
+    palm_pos_w = asset.data.body_pos_w[:, palm_body_id]
+    palm_quat_w = asset.data.body_quat_w[:, palm_body_id]
+
+    palm_offset = torch.tensor(
+        palm_offset_b, device=palm_pos_w.device, dtype=palm_pos_w.dtype
+    ).expand(palm_pos_w.shape[0], -1)
+    back_offset = torch.tensor(
+        back_offset_b, device=palm_pos_w.device, dtype=palm_pos_w.dtype
+    ).expand(palm_pos_w.shape[0], -1)
+
+    palm_point_w = palm_pos_w + quat_apply(palm_quat_w, palm_offset)
+    back_point_w = palm_pos_w + quat_apply(palm_quat_w, back_offset)
+
+    object_pos_w = object.data.root_pos_w
+    palm_dist = torch.norm(object_pos_w - palm_point_w, dim=1)
+    back_dist = torch.norm(object_pos_w - back_point_w, dim=1)
+
+    # Positive when object is closer to palm side than back side.
+    return torch.tanh(back_dist / std) - torch.tanh(palm_dist / std)
 
 
 def contacts(env: ManagerBasedRLEnv, threshold: float) -> torch.Tensor:
