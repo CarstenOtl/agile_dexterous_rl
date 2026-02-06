@@ -14,7 +14,7 @@ class DexsuiteFr3TekkenAdofPPORunnerCfg(RslRlOnPolicyRunnerCfg):
     obs_groups = {"policy": ["policy", "proprio", "perception"], "critic": ["policy", "proprio", "perception"]}
     max_iterations = 15000
     save_interval = 250
-    experiment_name = "dexsuite_fr3_tekken_adof"
+    experiment_name = "dexsuite_fr3_tekken_adof_v1_515_envs"
     policy = RslRlPpoActorCriticCfg(
         init_noise_std=1.0,
         actor_obs_normalization=True,
